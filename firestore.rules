@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Online appointment bookings (public create, public read for admin dashboard)
+    match /appointments/{appointmentId} {
+      allow create: if request.resource.data.keys().hasAll(
+        ['fullName', 'city', 'phone', 'serviceSlug', 'serviceName', 'date', 'timeSlot', 'timestamp']
+      );
+      allow read: if true;
+      allow update, delete: if false;
+    }
+
+    // Treatments — collection id is "services" (not "treatments")
+    // Public website reads without login; only signed-in admin can write.
+    match /services/{serviceId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
+    }
+
+    match /blogs/{blogId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
+    }
+
+    // Homepage content — clinic info, FAQ, problems, before/after, hero, etc.
+    match /siteContent/{docId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
+    }
+
+    // Reviews are fetched from Google Places API — not stored manually in Firestore.
+  }
+}
