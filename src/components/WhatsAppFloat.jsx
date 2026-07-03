@@ -20,7 +20,7 @@ export default function WhatsAppFloat() {
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.45)] ring-4 ring-white/80"
+      className="fixed bottom-24 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.45)] ring-4 ring-white/80 sm:bottom-6 sm:right-6 lg:bottom-6"
     >
       <MessageCircle className="h-7 w-7" />
       <span className="absolute -top-1 -right-1 flex h-4 w-4">

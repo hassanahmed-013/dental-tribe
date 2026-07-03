@@ -26,6 +26,9 @@ export default function ComparisonSlider({ beforeImage, afterImage, beforeAlt = 
   )
 
   const handlePointerDown = (e) => {
+    // Capture the pointer so the drag keeps tracking even when the finger
+    // or cursor leaves the container mid-gesture.
+    e.currentTarget.setPointerCapture?.(e.pointerId)
     setDragging(true)
     updateFromClientX(e.clientX)
   }
@@ -40,8 +43,8 @@ export default function ComparisonSlider({ beforeImage, afterImage, beforeAlt = 
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={stopDragging}
-      onPointerLeave={stopDragging}
-      className="relative aspect-[4/3] w-full select-none overflow-hidden rounded-3xl border border-teal-100/80 bg-teal-50 shadow-card"
+      onPointerCancel={stopDragging}
+      className="relative aspect-[4/3] w-full select-none overflow-hidden rounded-3xl border border-teal-100/80 bg-teal-50 shadow-card [touch-action:pan-y]"
     >
       <img src={afterImage} alt={afterAlt} className="absolute inset-0 h-full w-full object-cover" />
       <motion.div style={{ clipPath }} className="absolute inset-0">

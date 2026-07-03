@@ -8,8 +8,31 @@ html {
 
 #services,
 #about,
-#problems {
-  scroll-margin-top: 6rem;
+#problems,
+#how-it-works,
+#faq {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  #services,
+  #about,
+  #problems,
+  #how-it-works,
+  #faq {
+    scroll-margin-top: 6rem;
+  }
+}
+
+/* Space for mobile sticky CTA bar */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: 4.5rem;
+  }
+}
+
+.safe-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
 }
 
 body {
@@ -17,6 +40,16 @@ body {
   background-color: #FAFDFD;
   color: #0A2A2E;
   overflow-x: hidden;
+}
+
+/* iOS Safari zooms the page when focusing form controls smaller than 16px.
+   Keep every input readable-size on phones so focus never triggers zoom. */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -71,7 +104,7 @@ body {
   }
 
   .mobile-nav-link {
-    @apply rounded-xl px-4 py-3 text-base font-semibold text-navy transition-colors hover:bg-teal-50;
+    @apply rounded-xl px-4 py-3 text-left text-base font-semibold text-navy transition-colors hover:bg-teal-50;
   }
 
   .btn-navy {
@@ -105,6 +138,34 @@ body {
     background: transparent !important;
     mix-blend-mode: screen;
     filter: contrast(1.08) saturate(1.12);
+  }
+
+  .glow-video-wrap--mobile {
+    width: min(260px, 78vw);
+    max-height: min(300px, 38vh);
+  }
+
+  .glow-video-wrap--mobile .glow-video {
+    max-height: min(300px, 38vh);
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .glow-video-wrap--mobile {
+      width: min(300px, 60vw);
+      max-height: min(360px, 42vh);
+    }
+
+    .glow-video-wrap--mobile .glow-video {
+      max-height: min(360px, 42vh);
+    }
+  }
+
+  .section-pad {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl font-extrabold sm:text-4xl lg:text-5xl;
   }
 
   .section-label {

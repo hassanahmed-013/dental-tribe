@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { forwardRef, useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { ArrowUpRight, Clock, CalendarCheck } from 'lucide-react'
@@ -27,7 +27,7 @@ function HoverLines() {
   )
 }
 
-export default function ServiceCard({ service }) {
+const ServiceCard = forwardRef(function ServiceCard({ service }, ref) {
   const navigate = useNavigate()
   const cardRef = useRef(null)
   const accent = CATEGORY_COLORS[service.category] || CATEGORY_COLORS.Restorative
@@ -74,6 +74,7 @@ export default function ServiceCard({ service }) {
 
   return (
     <motion.div
+      ref={ref}
       layout
       variants={cardVariants}
       initial="hidden"
@@ -176,4 +177,6 @@ export default function ServiceCard({ service }) {
       </motion.div>
     </motion.div>
   )
-}
+})
+
+export default ServiceCard

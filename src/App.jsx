@@ -11,6 +11,7 @@ import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
 import ProblemDetail from './pages/ProblemDetail'
 import PageWipe from './components/PageWipe'
+import MobileStickyCTA from './components/MobileStickyCTA'
 import ProtectedRoute from './components/ProtectedRoute'
 import AdminGuestRoute from './components/AdminGuestRoute'
 import AdminLogin from './pages/admin/AdminLogin'
@@ -78,6 +79,7 @@ function AnimatedRoutes() {
           </Route>
         </Routes>
       </AnimatePresence>
+      <MobileStickyCTA />
     </>
   )
 }

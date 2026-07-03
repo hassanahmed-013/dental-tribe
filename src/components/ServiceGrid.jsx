@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useServices } from '../lib/useServices'
 import ServiceCard from './ServiceCard'
 import ScrollReveal from './ScrollReveal'
+import FunnelCTABand from './FunnelCTABand'
 
 function SkeletonCard() {
   return (
@@ -25,14 +26,14 @@ export default function ServiceGrid() {
   const { services, loading, error, isFetching } = useServices()
 
   return (
-    <section id="services" className="relative bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="services" className="section-pad relative bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="section-label mb-5">Live Booking</span>
-          <h2 className="font-display text-4xl font-extrabold text-teal-950 sm:text-5xl">
+          <h2 className="section-heading text-teal-950">
             Explore Our <span className="gradient-text">Treatments</span>
           </h2>
-          <p className="mt-4 text-lg text-teal-900/60">
+          <p className="mt-4 text-base text-teal-900/60 sm:text-lg">
             Tap any treatment to see full details and book your evening slot — availability updates in real time.
           </p>
         </ScrollReveal>
@@ -82,6 +83,12 @@ export default function ServiceGrid() {
             </AnimatePresence>
           </motion.div>
         )}
+
+        <FunnelCTABand
+          className="mt-12 sm:mt-16"
+          title="Not sure which treatment you need?"
+          subtitle="Message us on WhatsApp with your concern — Dr. Shahab's team will guide you to the right option and book your evening visit."
+        />
       </div>
     </section>
   )

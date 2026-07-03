@@ -111,7 +111,7 @@ export default function Home() {
       <Footer />
       <WhatsAppFloat />
 
-      <div className="pointer-events-none fixed bottom-5 left-5 z-40 max-w-xs">
+      <div className="pointer-events-none fixed bottom-28 left-3 right-3 z-40 max-w-xs sm:bottom-5 sm:left-5 sm:right-auto">
         <AnimatePresence>
           {liveToast && (
             <motion.div

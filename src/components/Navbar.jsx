@@ -105,6 +105,11 @@ export default function Navbar() {
             scrolled ? 'shadow-[0_8px_40px_rgba(0,33,71,0.12)]' : 'shadow-[0_12px_48px_rgba(0,33,71,0.08)]'
           }`}
         >
+          <div className="flex min-w-0 items-center gap-2 lg:hidden">
+            <p className="truncate font-display text-sm font-bold tracking-tight text-navy">Dental Tribe</p>
+            <ClinicStatusDot compact short />
+          </div>
+
           <nav className="hidden min-w-0 items-center gap-0.5 lg:flex xl:gap-1">
             {navItems.map((item) => (
               <NavLinkItem

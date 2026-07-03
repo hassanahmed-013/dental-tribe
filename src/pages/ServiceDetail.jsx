@@ -76,11 +76,12 @@ function FieldShell({ label, icon: Icon, valid, touched, className = '', childre
         <AnimatePresence>
           {touched && valid && (
             <motion.div
+              style={{ y: '-50%' }}
               initial={{ opacity: 0, scale: 0.4, rotate: -45 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0.4 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2"
+              className="pointer-events-none absolute right-4 top-1/2"
             >
               <CheckCircle2 className="h-5 w-5 text-emerald-500" />
             </motion.div>

@@ -4,6 +4,7 @@ import { useSiteContent } from '../context/SiteContentContext'
 import { useReviews } from '../lib/useReviews'
 import { getGoogleWriteReviewUrl } from '../lib/googleReviews'
 import ScrollReveal from './ScrollReveal'
+import FunnelCTABand from './FunnelCTABand'
 
 const AVATAR_COLORS = ['bg-violet-500', 'bg-amber-600', 'bg-teal-600', 'bg-rose-500', 'bg-cyan-600']
 
@@ -67,7 +68,7 @@ function ReviewCard({ review, colorIndex }) {
   const avatarColor = review.avatarColor || AVATAR_COLORS[colorIndex % AVATAR_COLORS.length]
 
   return (
-    <article className="flex h-full min-w-[300px] max-w-[360px] flex-col rounded-2xl border border-teal-100/80 bg-white p-5 shadow-card sm:min-w-[340px]">
+    <article className="flex h-full min-w-[260px] max-w-[360px] flex-col rounded-2xl border border-teal-100/80 bg-white p-5 shadow-card sm:min-w-[340px]">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${avatarColor}`}>
@@ -117,10 +118,10 @@ export default function GoogleReviews() {
   }
 
   return (
-    <section id="testimonials" className="relative bg-white py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="testimonials" className="section-pad relative bg-white">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-4xl font-extrabold text-navy sm:text-5xl">
+          <h2 className="section-heading text-navy">
             What Our Patients Say About Us!
           </h2>
         </ScrollReveal>
@@ -217,6 +218,12 @@ export default function GoogleReviews() {
             </p>
           )}
         </ScrollReveal>
+
+        <FunnelCTABand
+          className="mt-12 sm:mt-14"
+          title="Join thousands of happy patients"
+          subtitle="See why Lahore trusts Dental Tribe — book your evening visit today."
+        />
       </div>
     </section>
   )

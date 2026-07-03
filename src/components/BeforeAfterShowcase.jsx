@@ -23,14 +23,14 @@ export default function BeforeAfterShowcase() {
   if (!active) return null
 
   return (
-    <section id="results" className="relative bg-gradient-to-b from-white via-teal-50/40 to-white py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="results" className="section-pad relative bg-gradient-to-b from-white via-teal-50/40 to-white">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="section-label mb-5">{section?.sectionLabel || 'Real Patient Results'}</span>
-          <h2 className="font-display text-4xl font-extrabold text-navy sm:text-5xl">
+          <h2 className="section-heading text-navy">
             Before &amp; After <span className="gradient-text">{section?.titleAccent || 'Transformations'}</span>
           </h2>
-          <p className="mt-4 text-lg text-teal-900/60">
+          <p className="mt-4 text-base text-teal-900/60 sm:text-lg">
             {section?.subtitle || 'Drag the slider to compare results across our most popular treatments.'}
           </p>
         </ScrollReveal>
@@ -62,7 +62,7 @@ export default function BeforeAfterShowcase() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-12 grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14"
+            className="mt-10 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-14"
           >
             <ComparisonSlider
               beforeImage={active.beforeImage}
@@ -77,7 +77,7 @@ export default function BeforeAfterShowcase() {
                 {active.title}
               </h3>
               <p className="mt-5 text-base leading-relaxed text-teal-900/70">{active.description}</p>
-              <a href="#services" className="btn-cyan mt-8 inline-flex">
+              <a href="#services" className="btn-cyan mt-6 inline-flex w-full sm:mt-8 sm:w-auto">
                 Book {active.label} Consultation
               </a>
             </div>

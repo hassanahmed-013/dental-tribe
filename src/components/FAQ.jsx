@@ -3,6 +3,7 @@ import { ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSiteContent } from '../context/SiteContentContext'
 import ScrollReveal from './ScrollReveal'
+import FunnelCTABand from './FunnelCTABand'
 
 export default function FAQ() {
   const { home } = useSiteContent()
@@ -10,11 +11,11 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section id="faq" className="relative bg-gradient-to-b from-teal-50/40 to-white py-24">
-      <div className="mx-auto max-w-3xl px-6">
+    <section id="faq" className="section-pad relative bg-gradient-to-b from-teal-50/40 to-white">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <ScrollReveal className="text-center">
           <span className="section-label mb-5">FAQ</span>
-          <h2 className="font-display text-4xl font-extrabold text-navy sm:text-5xl">
+          <h2 className="section-heading text-navy">
             Questions? <span className="gradient-text">We&apos;ve Got Answers</span>
           </h2>
         </ScrollReveal>
@@ -54,6 +55,12 @@ export default function FAQ() {
             )
           })}
         </div>
+
+        <FunnelCTABand
+          className="mt-12"
+          title="Still have questions?"
+          subtitle="WhatsApp us anytime — our team replies personally and helps you pick the right treatment."
+        />
       </div>
     </section>
   )

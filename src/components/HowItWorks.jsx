@@ -2,6 +2,7 @@ import { Phone, ClipboardList, CalendarCheck } from 'lucide-react'
 import { useSiteContent } from '../context/SiteContentContext'
 import { resolveContentIcon } from '../lib/contentIcons'
 import ScrollReveal from './ScrollReveal'
+import FunnelCTABand from './FunnelCTABand'
 
 const FALLBACK_ICONS = {
   phone: Phone,
@@ -26,17 +27,17 @@ export default function HowItWorks() {
   })
 
   return (
-    <section id="how-it-works" className="relative bg-white py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="how-it-works" className="section-pad relative bg-white">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="section-label mb-5">{section.sectionLabel}</span>
-          <h2 className="font-display text-4xl font-extrabold text-navy sm:text-5xl">
+          <h2 className="section-heading text-navy">
             {section.title}
           </h2>
-          <p className="mt-4 text-lg text-teal-900/60">{section.subtitle}</p>
+          <p className="mt-4 text-base text-teal-900/60 sm:text-lg">{section.subtitle}</p>
         </ScrollReveal>
 
-        <div className="mt-16 grid grid-cols-1 items-stretch gap-8 md:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 items-stretch gap-6 sm:mt-16 sm:gap-8 md:grid-cols-3">
           {steps.map((item, i) => {
             const Icon = item.icon
             return (
@@ -55,6 +56,12 @@ export default function HowItWorks() {
             )
           })}
         </div>
+
+        <FunnelCTABand
+          className="mt-12 sm:mt-16"
+          title="Start in 3 easy steps"
+          subtitle="Choose your treatment, pick an evening slot, and confirm on WhatsApp — we reply within minutes."
+        />
       </div>
     </section>
   )

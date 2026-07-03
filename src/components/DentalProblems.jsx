@@ -8,16 +8,16 @@ export default function DentalProblems() {
   const { dentalProblems, home } = useSiteContent()
   const section = home.dentalProblemsSection
   return (
-    <section id="problems" className="relative bg-gradient-to-b from-teal-50/50 to-white py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="problems" className="section-pad relative bg-gradient-to-b from-teal-50/50 to-white">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 shadow-glow">
-            <Sparkles className="h-9 w-9 text-white" />
+          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 shadow-glow sm:h-20 sm:w-20">
+            <Sparkles className="h-8 w-8 text-white sm:h-9 sm:w-9" />
           </div>
-          <h2 className="font-display text-4xl font-extrabold text-navy sm:text-5xl">
+          <h2 className="section-heading text-navy">
             {section?.title || 'Common Dental Problems & Their Solutions'}
           </h2>
-          <p className="mt-4 text-lg text-teal-900/60">
+          <p className="mt-4 text-base text-teal-900/60 sm:text-lg">
             {section?.subtitle || 'From everyday concerns to complete smile makeovers — we have a treatment for every stage.'}
           </p>
         </ScrollReveal>
@@ -49,9 +49,9 @@ export default function DentalProblems() {
           ))}
         </ScrollStagger>
 
-        <ScrollReveal className="mt-12 text-center">
-          <a href="#services" className="btn-navy inline-flex">
-            Explore All Treatments
+        <ScrollReveal className="mt-10 text-center sm:mt-12">
+          <a href="#services" className="btn-cyan inline-flex w-full max-w-sm sm:w-auto">
+            Book Your Treatment Now
           </a>
         </ScrollReveal>
       </div>

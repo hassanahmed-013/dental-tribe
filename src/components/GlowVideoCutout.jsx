@@ -10,11 +10,13 @@ export default function GlowVideoCutout({ src, className = '' }) {
     if (!video) return
 
     const play = () => video.play().catch(() => {})
-    if (video.readyState >= 2) play()
-    else video.addEventListener('loadeddata', play, { once: true })
+    const onLoaded = () => play()
 
-    return () => video.removeEventListener('loadeddata', play)
-  }, [])
+    if (video.readyState >= 2) play()
+    else video.addEventListener('loadeddata', onLoaded, { once: true })
+
+    return () => video.removeEventListener('loadeddata', onLoaded)
+  }, [src])
 
   return (
     <div
